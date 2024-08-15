@@ -1,0 +1,53 @@
+.all{
+    background-color: #DAE2B6;
+    font-family: 'Yeseva One';
+    /*background-image: url("../../static/Images/background.png");*/
+
+    
+    /*image-resolution: from-image;
+    image-resolution: 300dpi;
+    image-resolution: from-image 300dpi;
+    image-resolution: 300dpi snap;
+    background-blend-mode: hard-light;
+    background-color: transparent;
+    background-image: inherit;
+    background-image: initial;
+    background-image: revert;
+    background-image: revert-layer;
+    background-image: unset; */
+}
+
+.bg-nav{
+    background: #9DC08B;
+    font-family: 'Yeseva One';
+}
+
+
+.col-md-6{
+    margin-top: 150px;
+    margin-left: 130px;
+    text-align: center;
+    font-family: 'Yeseva One rev=2';
+    color: #609966;
+}
+
+.col-md-3{
+    margin-top: 100px;
+    margin-right: 50px;
+}
+
+.mt-100{
+    animation: fade-in 0.8s 0.2s forwards cubic-bezier(0.11, 0, 0.5, 0);
+    display: inline-block;
+    opacity: 0;
+    filter: blur(4px);
+}
+
+@keyframes fade-in {
+    100% {
+      opacity: 1;
+      filter: blur(0);
+    }
+  }
+
+ 

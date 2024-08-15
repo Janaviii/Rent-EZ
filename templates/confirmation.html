@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Payment Confirmation</title>
+    <style>
+      body {
+        font-family: 'Yeseva One';
+        background-color: #40513B;
+      }
+
+      #payment-confirmation {
+        margin: 50px auto;
+        max-width: 600px;
+        background-color: #DAE2B6;
+        padding: 30px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        text-align: center;  
+      }
+
+      h1 {
+        font-size: 36px;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+
+      p {
+        font-size: 18px;
+        line-height: 1.5;
+      }
+
+      .success-message {
+        color: #008000;
+        font-weight: bold; 
+      }
+
+      .failure-message {
+        color: #ff0000;
+        font-weight: bold;
+      }
+
+      .purchase-info input[type="button"] {
+        background-color: #40513B;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      .purchase-info input[type="button"]:hover {
+        background-color: #9DC08B;
+      }
+
+      .purchase-info input[type="button"]:active {
+        background-color: #9DC08B;
+        transform: translateY(1px);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="payment-confirmation">
+      <h1>Payment Confirmation</h1>
+      <div class="success-message">
+        <img src="{{url_for('static',filename='Images/done.png')}}" alt="Product Image">
+        <p>Your payment was successful.</p>
+        <p>Please check your email for pickup spot details</p>
+        <p>Thank you for visiting our website</p>
+        <p>Visit Again!</p> 
+        {% if total %}
+        <p>Total Amount: {{ total }}</p>
+        {% endif %}
+      </div>
+      <div class = "purchase-info">
+        <a href="{{ url_for('home') }}"><input type="button" value="Return To Home"></a>
+      </div>
+    </div>
+  </body>
+</html>
+
+

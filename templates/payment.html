@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Payment Form</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        background-color: #40513B;
+        font-family: 'Yeseva One';
+        /*font-family: Arial, sans-serif;*/
+      }
+
+      .payment-form {
+        background-color: #DAE2B6;
+        margin: 20px auto;
+        max-width: 500px;
+        padding: 20px;
+        border: 1px solid #ccc;
+      }
+
+      .payment-form label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+      }
+
+      .payment-form input[type="text"],
+      .payment-form input[type="email"],
+      .payment-form input[type="tel"],
+      .payment-form input[type="number"],
+      .payment-form select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+
+      .payment-form input[type="submit"] {
+        background-color: #40513B;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+      }
+
+      .payment-form input[type="submit"]:hover {
+        background-color: #9DC08B;
+      }
+
+      .payment-form input[type="submit"]:active {
+        background-color: #9DC08B;
+        transform: translateY(1px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="payment-form">
+      {% if error %}
+      <p>{{ error }}</p>
+      {% endif %}
+      <form action="{{ url_for('payment') }}" method="post">
+        <h2>Payment Form</h2>
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Email ID" required>
+
+        <label for="contact">Contact</label>
+        <input type="tel" id="contact" name="contact" placeholder="Contact Number" maxlength="10" minlength="10" required>
+
+        <label for="cardnumber">Card Number</label>
+        <input type="tel" id="cardnumber" name="cardnumber" placeholder="xxxx xxxx xxxx xxxx" maxlength="16" minlength="16" required>
+
+        <label for="expiration">Expiration Date</label>
+        <input type="month" id="expiration-date" name="expiration" required>
+
+        <label for="cvv">CVV</label>
+        <input type="tel" id="cvv" name="cvv" placeholder="CVV" maxlength="3" minlength="3" required>
+
+ 
+        <label for="product">product</label>
+        <select id="product" name="product">
+          <option>Select Product</option>
+          <option value="200">Seeder</option>
+          <option value="1500">Tractor</option>
+          <option value="500">Land Leveler</option>
+          <option value="100">Hand Sprayer</option>
+          <option value="200">Sprayer (Petrol)</option>
+          <option value="200">Winnower</option>
+        </select>
+
+        <label for="count">count</label>
+        <select id="count" name="count">
+          <option value="">Select number of days/acre</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+
+        <label for="district">District</label>
+        <select id="district" name="district">
+          <option value="">Select district</option>
+          <option value="jalgaon">Jalgaon</option>
+          <option value="ratnagiri">Ratnagiri</option>
+          <option value="dhule">Dhule</option>
+          <option value="aurangabad">Aurangabad</option>
+        </select>
+        
+        <input type="submit" value="Payment">
+      </form>
+    </div>
+  </body>
+</html> 
+
+
+
