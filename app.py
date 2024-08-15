@@ -9,8 +9,8 @@ app.secret_key = 'your_secret_key'
 #Flask mail configuration  
 app.config['MAIL_SERVER']='smtp.gmail.com'  
 app.config['MAIL_PORT']= 465  
-app.config['MAIL_USERNAME'] = 'janavimi28@gmail.com'  
-app.config['MAIL_PASSWORD'] = 'pcxyezxlunhhcxuy'  
+app.config['MAIL_USERNAME'] = <user email is> 
+app.config['MAIL_PASSWORD'] = <pass key> 
 app.config['MAIL_USE_TLS'] = False  
 app.config['MAIL_USE_SSL'] = True  
 
@@ -52,7 +52,6 @@ def home():
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST':
-        print("Heyy")
         name = request.form['name']
         email = request.form['email']
         password = request.form['password']
@@ -62,7 +61,6 @@ def register():
         cur.execute('SELECT * FROM users WHERE name = ? ', (name,))
         a=cur.fetchone()
         if a:
-            print("Janavi....")
             error = 'Username already exists !'
             return render_template('register.html', error=error)
         # Validate username
@@ -89,9 +87,7 @@ def register():
 @app.route('/')
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    print("Hello")
     if request.method == 'POST':
-        print("Hii")
         name = request.form['name']
         password = request.form['password']
         conn = sqlite3.connect('database_form.db')
@@ -106,7 +102,6 @@ def login():
         else:
             return render_template('login.html', error='Invalid name or password.')
     else:
-        print("BYE")
         return render_template('login.html')
 
 @app.route('/product')
@@ -140,7 +135,6 @@ def prod6():
 @app.route('/payment', methods=['GET', 'POST'])
 def payment():
     if request.method == 'POST':
-        print("Heyy")
         name = request.form['name']
         email = request.form['email']
         contact = request.form['contact']
@@ -169,19 +163,19 @@ def payment():
         converted_count=float(count)
         
         if district=='jalgaon':
-            msg = Message('Rent-EZ Payment Confirmation', sender = 'janavimi28@gmail.com', recipients=[email])  
+            msg = Message('Rent-EZ Payment Confirmation', sender = <sender email id>, recipients=[email])  
             msg.body = ('Your payemnt is received👍\nTotal amount is Rs {}\nCollect the equipment from the below given address :📍\nShantinath complex,\nRing road,\nJalgaon,\n425001\nThank you for visiting our website🙏'.format(converted_num*converted_count))
             mail.send(msg)
         elif district=='ratnagiri':
-            msg = Message('Rent-EZ Payment Confirmation', sender = 'janavimi28@gmail.com', recipients=[email])  
+            msg = Message('Rent-EZ Payment Confirmation', sender = <sender email id>, recipients=[email])  
             msg.body = ('Your payemnt is received👍\nTotal amount is Rs {}\nCollect the equipment from the below given address :📍\nRamanand Nagar,\MJ College road,\nRatnagiri,\n415612\nThank you for visiting our website🙏'.format(converted_num*converted_count))
             mail.send(msg)
         elif district=='dhule':
-            msg = Message('Rent-EZ Payment Confirmation', sender = 'janavimi28@gmail.com', recipients=[email])  
+            msg = Message('Rent-EZ Payment Confirmation', sender = <sender email id>, recipients=[email])  
             msg.body = ('Your payemnt is received👍\nTotal amount is Rs {}\nCollect the equipment from the below given address :📍\nA/004,Tirupati Nagar,\nShani mandir road,\nDhule,\n424001\nThank you for visiting our website🙏'.format(converted_num*converted_count))
             mail.send(msg)
         elif district=='aurangabad':
-            msg = Message('Rent-EZ Payment Confirmation', sender = 'janavimi28@gmail.com', recipients=[email])  
+            msg = Message('Rent-EZ Payment Confirmation', sender = <sender email id>, recipients=[email])  
             msg.body = ('Your payemnt is received👍\nTotal amount is Rs {}\nCollect the equipment from the below given address :📍\nA/004,MJ complex,\nRam mandir road,\nAurangabad,\n431113\nThank you for visiting our website🙏'.format(converted_num*converted_count))
             mail.send(msg)
         
